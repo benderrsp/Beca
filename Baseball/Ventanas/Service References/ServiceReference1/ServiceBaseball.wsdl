@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ServiceBaseball" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:49831/ServiceBaseball.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:49831/ServiceBaseball.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:49831/ServiceBaseball.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Modelo" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IServiceBaseball_DoWork_InputMessage">
+    <wsdl:part name="parameters" element="tns:DoWork" />
+  </wsdl:message>
+  <wsdl:message name="IServiceBaseball_DoWork_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DoWorkResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceBaseball_GetAñoInicio_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAñoInicio" />
+  </wsdl:message>
+  <wsdl:message name="IServiceBaseball_GetAñoInicio_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAñoInicioResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceBaseball_GetAñoFin_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAñoFin" />
+  </wsdl:message>
+  <wsdl:message name="IServiceBaseball_GetAñoFin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAñoFinResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceBaseball_GetEquiposAño_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEquiposAño" />
+  </wsdl:message>
+  <wsdl:message name="IServiceBaseball_GetEquiposAño_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEquiposAñoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceBaseball_GetJugadoresEquipo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetJugadoresEquipo" />
+  </wsdl:message>
+  <wsdl:message name="IServiceBaseball_GetJugadoresEquipo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetJugadoresEquipoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IServiceBaseball">
+    <wsdl:operation name="DoWork">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceBaseball/DoWork" message="tns:IServiceBaseball_DoWork_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceBaseball/DoWorkResponse" message="tns:IServiceBaseball_DoWork_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAñoInicio">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceBaseball/GetAñoInicio" message="tns:IServiceBaseball_GetAñoInicio_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceBaseball/GetAñoInicioResponse" message="tns:IServiceBaseball_GetAñoInicio_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAñoFin">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceBaseball/GetAñoFin" message="tns:IServiceBaseball_GetAñoFin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceBaseball/GetAñoFinResponse" message="tns:IServiceBaseball_GetAñoFin_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEquiposAño">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceBaseball/GetEquiposAño" message="tns:IServiceBaseball_GetEquiposAño_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceBaseball/GetEquiposAñoResponse" message="tns:IServiceBaseball_GetEquiposAño_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetJugadoresEquipo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceBaseball/GetJugadoresEquipo" message="tns:IServiceBaseball_GetJugadoresEquipo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceBaseball/GetJugadoresEquipoResponse" message="tns:IServiceBaseball_GetJugadoresEquipo_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IServiceBaseball" type="tns:IServiceBaseball">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="DoWork">
+      <soap:operation soapAction="http://tempuri.org/IServiceBaseball/DoWork" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAñoInicio">
+      <soap:operation soapAction="http://tempuri.org/IServiceBaseball/GetAñoInicio" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAñoFin">
+      <soap:operation soapAction="http://tempuri.org/IServiceBaseball/GetAñoFin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEquiposAño">
+      <soap:operation soapAction="http://tempuri.org/IServiceBaseball/GetEquiposAño" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetJugadoresEquipo">
+      <soap:operation soapAction="http://tempuri.org/IServiceBaseball/GetJugadoresEquipo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServiceBaseball">
+    <wsdl:port name="BasicHttpBinding_IServiceBaseball" binding="tns:BasicHttpBinding_IServiceBaseball">
+      <soap:address location="http://localhost:49831/ServiceBaseball.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

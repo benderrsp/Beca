@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Modelo" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Modelo" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfEquipo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Equipo" nillable="true" type="tns:Equipo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEquipo" nillable="true" type="tns:ArrayOfEquipo" />
+  <xs:complexType name="Equipo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AB" type="xs:int" />
+      <xs:element minOccurs="0" name="BB" type="xs:int" />
+      <xs:element minOccurs="0" name="BBA" type="xs:int" />
+      <xs:element minOccurs="0" name="BPF" type="xs:int" />
+      <xs:element minOccurs="0" name="CG" type="xs:int" />
+      <xs:element minOccurs="0" name="CS" type="xs:int" />
+      <xs:element minOccurs="0" name="DOSB" type="xs:int" />
+      <xs:element minOccurs="0" name="DP" type="xs:int" />
+      <xs:element minOccurs="0" name="DivWin" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="E" type="xs:int" />
+      <xs:element minOccurs="0" name="ER" type="xs:int" />
+      <xs:element minOccurs="0" name="ERA" type="xs:float" />
+      <xs:element minOccurs="0" name="FP" type="xs:float" />
+      <xs:element minOccurs="0" name="G" type="xs:int" />
+      <xs:element minOccurs="0" name="Ghome" type="xs:int" />
+      <xs:element minOccurs="0" name="H" type="xs:int" />
+      <xs:element minOccurs="0" name="HA" type="xs:int" />
+      <xs:element minOccurs="0" name="HBP" type="xs:int" />
+      <xs:element minOccurs="0" name="HR" type="xs:int" />
+      <xs:element minOccurs="0" name="HRA" type="xs:int" />
+      <xs:element minOccurs="0" name="IPouts" type="xs:int" />
+      <xs:element minOccurs="0" name="IgID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="L" type="xs:int" />
+      <xs:element minOccurs="0" name="LgWin" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PPF" type="xs:int" />
+      <xs:element minOccurs="0" name="R" type="xs:int" />
+      <xs:element minOccurs="0" name="RA" type="xs:int" />
+      <xs:element minOccurs="0" name="Rank" type="xs:int" />
+      <xs:element minOccurs="0" name="SB" type="xs:int" />
+      <xs:element minOccurs="0" name="SF" type="xs:int" />
+      <xs:element minOccurs="0" name="SHO" type="xs:int" />
+      <xs:element minOccurs="0" name="SO" type="xs:int" />
+      <xs:element minOccurs="0" name="SOA" type="xs:int" />
+      <xs:element minOccurs="0" name="SV" type="xs:int" />
+      <xs:element minOccurs="0" name="TRESB" type="xs:int" />
+      <xs:element minOccurs="0" name="W" type="xs:int" />
+      <xs:element minOccurs="0" name="WCWin" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WSwin" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="attendance" type="xs:int" />
+      <xs:element minOccurs="0" name="divID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="franchID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="park" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="teamID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="teamIDBR" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="teamIDlahman45" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="teamIDretro" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="yerID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Equipo" nillable="true" type="tns:Equipo" />
+  <xs:complexType name="ArrayOfJugador">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Jugador" nillable="true" type="tns:Jugador" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfJugador" nillable="true" type="tns:ArrayOfJugador" />
+  <xs:complexType name="Jugador">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="NombreCompleto" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="bats" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="bbrefID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="birthCity" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="birthCountry" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="birthDay" type="xs:int" />
+      <xs:element minOccurs="0" name="birthMonth" type="xs:int" />
+      <xs:element minOccurs="0" name="birthState" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="birthYear" type="xs:int" />
+      <xs:element minOccurs="0" name="deathCity" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="deathCountry" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="deathDay" type="xs:int" />
+      <xs:element minOccurs="0" name="deathMonth" type="xs:int" />
+      <xs:element minOccurs="0" name="deathState" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="deathYear" type="xs:int" />
+      <xs:element minOccurs="0" name="debut" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="finalGame" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="height" type="xs:float" />
+      <xs:element minOccurs="0" name="nameFirst" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="nameGiven" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="nameLast" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="playerID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="retroID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="throws" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="weight" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Jugador" nillable="true" type="tns:Jugador" />
+</xs:schema>

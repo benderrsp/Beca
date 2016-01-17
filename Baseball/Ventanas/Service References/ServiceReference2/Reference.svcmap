@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="58b142f6-efba-4929-8dde-79967c53a627" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:49831/ServiceBaseball2.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ServiceBaseball21.xsd" MetadataType="Schema" ID="069cc147-845c-4646-a2be-7a1c970c932d" SourceId="1" SourceUrl="http://localhost:49831/ServiceBaseball2.svc?xsd=xsd1" />
+    <MetadataFile FileName="ServiceBaseball2.xsd" MetadataType="Schema" ID="029bf7d3-b211-4bed-9a20-7987c4d521d1" SourceId="1" SourceUrl="http://localhost:49831/ServiceBaseball2.svc?xsd=xsd0" />
+    <MetadataFile FileName="ServiceBaseball2.disco" MetadataType="Disco" ID="95c95788-d20c-4950-b1b7-0b85e3a4feda" SourceId="1" SourceUrl="http://localhost:49831/ServiceBaseball2.svc?disco" />
+    <MetadataFile FileName="ServiceBaseball211.xsd" MetadataType="Schema" ID="b357d7b2-173c-4e98-9d82-be7307b2119b" SourceId="1" SourceUrl="http://localhost:49831/ServiceBaseball2.svc?xsd=xsd2" />
+    <MetadataFile FileName="ServiceBaseball2.wsdl" MetadataType="Wsdl" ID="5fec7998-f863-4279-9552-1ddcf13e5b99" SourceId="1" SourceUrl="http://localhost:49831/ServiceBaseball2.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
