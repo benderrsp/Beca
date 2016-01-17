@@ -8,7 +8,7 @@ namespace Modelo
 {
     public class Aparicion
     {
-        
+        //A VER SI SOY CAPAZ
         public int yearID { get; set; }
         public string teamID { get; set; }
         public string IgID { get; set; }
