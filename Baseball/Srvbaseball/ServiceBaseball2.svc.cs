@@ -14,7 +14,8 @@ namespace Srvbaseball
     // NOTA: para iniciar el Cliente de prueba WCF para probar este servicio, seleccione ServiceBaseball2.svc o ServiceBaseball2.svc.cs en el Explorador de soluciones e inicie la depuración.
     public class ServiceBaseball2 : IServiceBaseball2
     {
-        public string conexion = "Server = BENDER-PC\\SQLEXPRESS; Database = Baseball; User Id = sa;Password = NCSadmin";
+        //public static string conexion = Loguin.datosCon;
+        public string conexion = "Server = BENDER\\SQLEXPRESS; Database = Baseball; User Id = sa;Password = NCSadmin";
         public void DoWork()
         {
         }

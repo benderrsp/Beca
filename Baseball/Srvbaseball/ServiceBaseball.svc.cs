@@ -18,7 +18,8 @@ namespace Srvbaseball
         public void DoWork()
         {
         }
-        public static string conexion = "Server = BENDER-PC\\SQLEXPRESS; Database = Baseball; User Id = sa;Password = NCSadmin";
+        public static string conexion = "Server = BENDER\\SQLEXPRESS; Database = Baseball; User Id = sa;Password = NCSadmin";
+        //public static string conexion = Loguin.datosCon;
         public int GetAñoInicio()
         {
             int año = 1995;         

@@ -96,6 +96,7 @@
             this.Controls.Add(this.textBox1);
             this.Name = "JuagadorModificar";
             this.Text = "JuagadorModificar";
+            this.Load += new System.EventHandler(this.JuagadorModificar_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

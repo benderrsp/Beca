@@ -39,5 +39,10 @@ namespace Ventanas
 
 
         }
+
+        private void JuagadorModificar_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
