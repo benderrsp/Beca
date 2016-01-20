@@ -15,12 +15,12 @@ namespace Srvbaseball
     public class ServiceBaseball2 : IServiceBaseball2
     {
         //public static string conexion = Loguin.datosCon;
-        public string conexion = "Server = BENDER\\SQLEXPRESS; Database = Baseball; User Id = sa;Password = NCSadmin";
+        public string conexion = "Server = BECA1\\SQLEXPRESS; Database = Baseball; User Id = sa;Password = NCSadmin";
         public void DoWork()
         {
         }
 
-        public Jugador jugador(string IdJugador)
+        public Jugador jugador(string IdJugador, int año, string Idequipo)
         {
             Jugador jugadorp = new Jugador();
             
@@ -33,13 +33,51 @@ namespace Srvbaseball
                                       "FROM            Master " +
                                       "where Master.playerID=@id";
                 conn.Open();
-                SqlDataReader lector = lector = command.ExecuteReader();
+                SqlDataReader lector = command.ExecuteReader();
+              
                 while (lector.Read())
                 {
                     jugadorp.playerID = lector[0].ToString();
-                    jugadorp.nameFirst= lector[13].ToString();
+                    jugadorp.birthYear = Convert.ToInt32(lector[1]);
+                    jugadorp.birthMonth = Convert.ToInt32(lector[2]);
+                    jugadorp.birthDay = Convert.ToInt32(lector[3]);
+                    jugadorp.birthCountry= lector[4].ToString();
+                    jugadorp.birthState = lector[5].ToString();
+                    jugadorp.birthCity = lector[6].ToString();
+                    jugadorp.deathYear = Convert.ToInt32(lector[7]);
+                    jugadorp.deathMonth = Convert.ToInt32(lector[8]);
+                    jugadorp.deathDay = Convert.ToInt32(lector[9]);
+                    jugadorp.deathCountry = lector[10].ToString();
+                    jugadorp.deathState = lector[11].ToString();
+                    jugadorp.deathCity = lector[12].ToString();
+                    jugadorp.nameFirst = lector[13].ToString();
+                    jugadorp.nameLast = lector[14].ToString();
+                    jugadorp.nameGiven = lector[15].ToString();
+                    jugadorp.weight = Convert.ToInt32(lector[16]);
+                    jugadorp.height = Convert.ToInt32(lector[17]);
+                    jugadorp.bats = lector[18].ToString();
+                    jugadorp.throws = lector[19].ToString();
+                    jugadorp.debut = (DateTime) lector[20];
+                    jugadorp.finalGame = (DateTime)lector[21];
+                    jugadorp.retroID = lector[22].ToString();
+                    jugadorp.bbrefID = lector[23].ToString();
 
                 }
+                lector.Close();
+                command = conn.CreateCommand();
+                SqlParameter idj = command.Parameters.AddWithValue("@idj", IdJugador);
+                SqlParameter idaño = command.Parameters.AddWithValue("@idano", año);
+                SqlParameter idteam = command.Parameters.AddWithValue("@idequipo", Idequipo);
+                command.CommandText = "SELECT        salary " +
+                                      "FROM            Salaries " +
+                                      "where (playerID = @idj) AND (yearID = @idano) AND (teamID = @idequipo)";
+                SqlDataReader lector2 = command.ExecuteReader();
+
+                while (lector2.Read())
+                {
+                    jugadorp.salarie = lector2[0].ToString();
+                }
+
 
             }
             return jugadorp;           

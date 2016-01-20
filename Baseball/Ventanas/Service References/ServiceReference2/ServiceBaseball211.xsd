@@ -25,6 +25,7 @@
       <xs:element minOccurs="0" name="nameLast" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="playerID" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="retroID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="salarie" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="throws" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="weight" type="xs:int" />
     </xs:sequence>

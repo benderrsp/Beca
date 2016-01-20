@@ -51,10 +51,10 @@ namespace Ventanas
         private void button1_Click(object sender, EventArgs e)
         {
             Jugador jugador = (Jugador)listBox2.SelectedItem;
-            JuagadorModificar modificar = new JuagadorModificar(jugador.playerID);
-            //MessageBox.Show(jugador.playerID);
-            modificar.idJugador = jugador.playerID;
-            //modificar.form1 = this;
+            Equipo equipo = (Equipo)listBox1.SelectedItem;
+            JuagadorModificar modificar = new JuagadorModificar(jugador.playerID, true, (int)numericUpDown1.Value, equipo.teamID.ToString());
+
+            
             modificar.ShowDialog();
             this.ActualizarJugadores();
         }

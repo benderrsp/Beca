@@ -15,7 +15,7 @@ namespace Srvbaseball
         [OperationContract]
         void DoWork();
         [OperationContract]
-        Jugador jugador(string IdJugador);
+        Jugador jugador(string IdJugador, int año, string Idequipo);
         [OperationContract]
         void RellenarJugador(Jugador jugador);
     }

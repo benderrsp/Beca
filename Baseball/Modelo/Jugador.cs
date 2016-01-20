@@ -33,5 +33,6 @@ namespace Modelo
         public DateTime finalGame { get; set; }
         public string retroID { get; set; }
         public string bbrefID { get; set; }
+        public string salarie { get; set; }
     }
 }
