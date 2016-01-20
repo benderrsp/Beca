@@ -14,8 +14,6 @@ namespace Ventanas
     public partial class JuagadorModificar : Form
     {
 
-  
-
         public JuagadorModificar(string id, bool editando, int año, string equipo)
         {
 
@@ -63,8 +61,18 @@ namespace Ventanas
             textBox4.Text = jugador.birthCountry;
             textBox5.Text = jugador.birthState;
             textBox6.Text = jugador.birthCity;
-            DateTime fechanac = new DateTime(jugador.birthYear, jugador.birthMonth, jugador.birthDay);
-            dateTimePicker1.Value = fechanac;
+            if(jugador.birthYear==0||jugador.birthMonth==0||jugador.birthDay==0)
+            {
+                label21.Text = "Error fecha";
+                label21.ForeColor = Color.Red;
+            }
+            else
+            {
+                DateTime fechanac = new DateTime(jugador.birthYear, jugador.birthMonth, jugador.birthDay);
+                dateTimePicker1.Value = fechanac;
+            }
+           
+            
             textBox9.Text = jugador.deathCountry;
             textBox8.Text = jugador.deathState;
             textBox7.Text = jugador.deathCity;
@@ -88,6 +96,10 @@ namespace Ventanas
             if (jugador.salarie != null) {
             textBox11.Text = jugador.salarie.ToString();
             }
+            else
+            {
+                textBox11.Text = "Salario no determinado";
+            }
 
         }
 
@@ -97,9 +109,17 @@ namespace Ventanas
 
             ServiceReference2.ServiceBaseball2Client cliente = new ServiceReference2.ServiceBaseball2Client();
             Jugador jugador = new Jugador();
+            jugador.salarie = textBox11.Text;
             jugador.playerID = textBox1.Text;
             jugador.nameFirst = textBox2.Text;
             jugador.nameLast = textBox3.Text;
+            jugador.nameGiven = textBox10.Text;
+            jugador.birthCountry = textBox4.Text;
+            jugador.birthState = textBox5.Text;
+            jugador.birthCity = textBox6.Text;
+            jugador.birthDay = dateTimePicker1.Value.Day;
+            jugador.birthMonth= dateTimePicker1.Value.Month;
+            jugador.birthYear = dateTimePicker1.Value.Year;
             cliente.RellenarJugador(jugador);
             this.Close();
            

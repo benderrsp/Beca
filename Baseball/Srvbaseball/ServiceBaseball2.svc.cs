@@ -14,7 +14,7 @@ namespace Srvbaseball
     // NOTA: para iniciar el Cliente de prueba WCF para probar este servicio, seleccione ServiceBaseball2.svc o ServiceBaseball2.svc.cs en el Explorador de soluciones e inicie la depuración.
     public class ServiceBaseball2 : IServiceBaseball2
     {
-        //public static string conexion = Loguin.datosCon;
+        
         public string conexion = "Server = BECA1\\SQLEXPRESS; Database = Baseball; User Id = sa;Password = NCSadmin";
         public void DoWork()
         {
@@ -77,22 +77,31 @@ namespace Srvbaseball
                 {
                     jugadorp.salarie = lector2[0].ToString();
                 }
-
-
             }
             return jugadorp;           
         }
+
         public void RellenarJugador(Jugador jugador)
         {
             using (SqlConnection conn = new SqlConnection(conexion))
             {
                 SqlCommand command = conn.CreateCommand();
                 command.CommandType = CommandType.Text;
-                SqlParameter añop = command.Parameters.AddWithValue("@id", jugador.playerID);
-                SqlParameter nameF = command.Parameters.AddWithValue("@nameFirst", jugador.nameFirst);
+                SqlParameter idjugador = command.Parameters.AddWithValue("@id", jugador.playerID);
+                SqlParameter nombrejugador = command.Parameters.AddWithValue("@nameFirst", jugador.nameFirst);
+                SqlParameter apellidojugador = command.Parameters.AddWithValue("@nameLast", jugador.nameLast);
+                SqlParameter apodo = command.Parameters.AddWithValue("@nameGiven", jugador.nameGiven);
+                SqlParameter añonac = command.Parameters.AddWithValue("@birthYear", jugador.birthYear);
+                SqlParameter mesnac = command.Parameters.AddWithValue("@birthMonth", jugador.birthMonth);
+                SqlParameter dianac = command.Parameters.AddWithValue("@birthDay", jugador.birthDay);
+
                 command.CommandText = "UPDATE Master" +
                                       " Set nameFirst = @nameFirst" +
-                                      ",nameLast = 'Rodriguez'" +
+                                      ",nameLast = @nameLast " +
+                                      ",nameGiven= @nameGiven " +
+                                      ",birthYear= @birthYear " +
+                                      ",birthMonth= @birthMonth " +
+                                      ",birthDay= @birthDay " +
                                       "where playerID = @id;";
                 conn.Open();
                 command.ExecuteNonQuery();           
