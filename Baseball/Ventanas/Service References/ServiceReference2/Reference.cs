@@ -32,6 +32,12 @@ namespace Ventanas.ServiceReference2 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceBaseball2/RellenarJugador", ReplyAction="http://tempuri.org/IServiceBaseball2/RellenarJugadorResponse")]
         System.Threading.Tasks.Task RellenarJugadorAsync(Modelo.Jugador jugador);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceBaseball2/ObtenerSalarios", ReplyAction="http://tempuri.org/IServiceBaseball2/ObtenerSalariosResponse")]
+        string[][] ObtenerSalarios(string IdJugador);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceBaseball2/ObtenerSalarios", ReplyAction="http://tempuri.org/IServiceBaseball2/ObtenerSalariosResponse")]
+        System.Threading.Tasks.Task<string[][]> ObtenerSalariosAsync(string IdJugador);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -83,6 +89,14 @@ namespace Ventanas.ServiceReference2 {
         
         public System.Threading.Tasks.Task RellenarJugadorAsync(Modelo.Jugador jugador) {
             return base.Channel.RellenarJugadorAsync(jugador);
+        }
+        
+        public string[][] ObtenerSalarios(string IdJugador) {
+            return base.Channel.ObtenerSalarios(IdJugador);
+        }
+        
+        public System.Threading.Tasks.Task<string[][]> ObtenerSalariosAsync(string IdJugador) {
+            return base.Channel.ObtenerSalariosAsync(IdJugador);
         }
     }
 }

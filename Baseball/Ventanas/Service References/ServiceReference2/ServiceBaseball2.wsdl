@@ -5,6 +5,7 @@
       <xsd:import schemaLocation="http://localhost:49831/ServiceBaseball2.svc?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:49831/ServiceBaseball2.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:49831/ServiceBaseball2.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Modelo" />
+      <xsd:import schemaLocation="http://localhost:49831/ServiceBaseball2.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IServiceBaseball2_DoWork_InputMessage">
@@ -25,6 +26,12 @@
   <wsdl:message name="IServiceBaseball2_RellenarJugador_OutputMessage">
     <wsdl:part name="parameters" element="tns:RellenarJugadorResponse" />
   </wsdl:message>
+  <wsdl:message name="IServiceBaseball2_ObtenerSalarios_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerSalarios" />
+  </wsdl:message>
+  <wsdl:message name="IServiceBaseball2_ObtenerSalarios_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerSalariosResponse" />
+  </wsdl:message>
   <wsdl:portType name="IServiceBaseball2">
     <wsdl:operation name="DoWork">
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceBaseball2/DoWork" message="tns:IServiceBaseball2_DoWork_InputMessage" />
@@ -37,6 +44,10 @@
     <wsdl:operation name="RellenarJugador">
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceBaseball2/RellenarJugador" message="tns:IServiceBaseball2_RellenarJugador_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServiceBaseball2/RellenarJugadorResponse" message="tns:IServiceBaseball2_RellenarJugador_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerSalarios">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceBaseball2/ObtenerSalarios" message="tns:IServiceBaseball2_ObtenerSalarios_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceBaseball2/ObtenerSalariosResponse" message="tns:IServiceBaseball2_ObtenerSalarios_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IServiceBaseball2" type="tns:IServiceBaseball2">
@@ -61,6 +72,15 @@
     </wsdl:operation>
     <wsdl:operation name="RellenarJugador">
       <soap:operation soapAction="http://tempuri.org/IServiceBaseball2/RellenarJugador" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerSalarios">
+      <soap:operation soapAction="http://tempuri.org/IServiceBaseball2/ObtenerSalarios" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

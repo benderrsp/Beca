@@ -147,6 +147,9 @@
     <None Include="Service References\ServiceReference2\ServiceBaseball211.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\ServiceReference2\ServiceBaseball22.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

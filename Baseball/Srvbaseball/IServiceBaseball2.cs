@@ -18,5 +18,7 @@ namespace Srvbaseball
         Jugador jugador(string IdJugador, int año, string Idequipo);
         [OperationContract]
         void RellenarJugador(Jugador jugador);
+        [OperationContract]
+        List<string[]> ObtenerSalarios(string IdJugador);
     }
 }

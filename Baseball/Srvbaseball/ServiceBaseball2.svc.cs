@@ -44,6 +44,15 @@ namespace Srvbaseball
                     jugadorp.birthCountry= lector[4].ToString();
                     jugadorp.birthState = lector[5].ToString();
                     jugadorp.birthCity = lector[6].ToString();
+                    if ((lector[7] == null ||lector[7] == null||lector[9]==null)|| 
+                        ((int)lector[7] == 0 || (int)lector[7] == 0 || (int)lector[9] == 0))
+                    {
+                        jugadorp.esfiambre = false;
+                    }
+                    else
+                    {
+                        jugadorp.esfiambre = true;
+                    }
                     jugadorp.deathYear = Convert.ToInt32(lector[7]);
                     jugadorp.deathMonth = Convert.ToInt32(lector[8]);
                     jugadorp.deathDay = Convert.ToInt32(lector[9]);
@@ -106,6 +115,31 @@ namespace Srvbaseball
                 conn.Open();
                 command.ExecuteNonQuery();           
             }
+        }
+        public List<string[]> ObtenerSalarios(string IdJugador)
+        {
+            List<string[]> salarios = new List<string[]>();
+            using (SqlConnection conn = new SqlConnection(conexion))
+            {
+                SqlCommand command = conn.CreateCommand();
+                SqlParameter idj = command.Parameters.AddWithValue("@idj", IdJugador);
+                command.CommandType = CommandType.Text;
+                command.CommandText = "SELECT        yearID, teamID, salary " +
+                                       "FROM            Salaries " +
+                                       "WHERE playerID=@idj";
+                conn.Open();
+                SqlDataReader lector = command.ExecuteReader();
+                while (lector.Read())
+                {
+                    string[] registro = new string[3];
+                    registro[0]=(lector[0].ToString());
+                    registro[1] = (lector[1].ToString());
+                    registro[2] = (lector[2].ToString());
+                    salarios.Add(registro);
+                }
+
+            }
+            return salarios;
         }
     }
 }

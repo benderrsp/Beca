@@ -34,5 +34,6 @@ namespace Modelo
         public string retroID { get; set; }
         public string bbrefID { get; set; }
         public string salarie { get; set; }
+        public bool esfiambre { get; set; }
     }
 }

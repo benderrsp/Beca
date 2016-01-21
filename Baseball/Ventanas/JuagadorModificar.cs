@@ -22,6 +22,7 @@ namespace Ventanas
             if (editando == true)
             {
                 CargarJugador(id,año,equipo);
+               
             }
 
         }
@@ -53,7 +54,7 @@ namespace Ventanas
 
             ServiceReference2.ServiceBaseball2Client cliente = new ServiceReference2.ServiceBaseball2Client();
             Jugador jugador = cliente.jugador(id, año, equipo);
-            textBox11.Text = jugador.salarie;
+      
             textBox1.Text = jugador.playerID;
             textBox2.Text = jugador.nameFirst;
             textBox3.Text = jugador.nameLast;
@@ -76,10 +77,13 @@ namespace Ventanas
             textBox9.Text = jugador.deathCountry;
             textBox8.Text = jugador.deathState;
             textBox7.Text = jugador.deathCity;
-            if(jugador.deathMonth==0||jugador.deathYear==0||jugador.deathDay==0)
+
+            if(jugador.esfiambre==false)
             {
                 label20.Text = "No es fiambre";                
                 label20.ForeColor = Color.Green;
+                nofiambre();
+                
             }
             else
             { 
@@ -87,19 +91,23 @@ namespace Ventanas
             dateTimePicker2.Value = fechamuert;
                 label20.Text = "Es fiambre";
                 label20.ForeColor = Color.Red;
+                fiambre();
+                
             }
             
             numericUpDown1.Value = jugador.weight;
             numericUpDown2.Value = (Decimal)jugador.height;
             comboBox1.SelectedItem = jugador.bats.ToString();
             comboBox2.SelectedItem = jugador.throws.ToString();
-            if (jugador.salarie != null) {
-            textBox11.Text = jugador.salarie.ToString();
-            }
-            else
+            
+            //SALARIOS
+
+            List<string[]> salarios = (cliente.ObtenerSalarios(jugador.playerID)).ToList();
+            foreach (string[] registro in salarios)
             {
-                textBox11.Text = "Salario no determinado";
+                dataGridView1.Rows.Add(registro);
             }
+          
 
         }
 
@@ -109,7 +117,7 @@ namespace Ventanas
 
             ServiceReference2.ServiceBaseball2Client cliente = new ServiceReference2.ServiceBaseball2Client();
             Jugador jugador = new Jugador();
-            jugador.salarie = textBox11.Text;
+            
             jugador.playerID = textBox1.Text;
             jugador.nameFirst = textBox2.Text;
             jugador.nameLast = textBox3.Text;
@@ -121,6 +129,7 @@ namespace Ventanas
             jugador.birthMonth= dateTimePicker1.Value.Month;
             jugador.birthYear = dateTimePicker1.Value.Year;
             cliente.RellenarJugador(jugador);
+           
             this.Close();
            
         }
@@ -133,6 +142,36 @@ namespace Ventanas
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if(checkBox1.Checked==false)
+            {
+                nofiambre();
+            }
+            else if(checkBox1.Checked == true)
+            {
+                fiambre();
+            }
+        }
+        private void fiambre()
+        {
+            textBox9.Enabled = true;
+            textBox8.Enabled = true;
+            textBox7.Enabled = true;
+            dateTimePicker2.Enabled = true;
+            checkBox1.Checked = true;
+
+
+        }
+        private void nofiambre()
+        {
+            textBox9.Enabled = false;
+            textBox8.Enabled = false;
+            textBox7.Enabled = false;
+            dateTimePicker2.Enabled = false;
+            checkBox1.Checked = false;
         }
     }
 }
