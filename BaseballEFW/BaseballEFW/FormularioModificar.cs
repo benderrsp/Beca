@@ -14,9 +14,11 @@ namespace BaseballEFW
     {
         public FormularioModificar(string id)
         {
+
             InitializeComponent();
             Master jugador = jugadorCargar(id);
             mostrarJugador(jugador);
+
         }
         public Master jugadorCargar (string idjugador)
         {
@@ -36,6 +38,7 @@ namespace BaseballEFW
         }
         public void mostrarJugador(Master jugador)
         {
+
             dateTimePicker1.MinDate = new DateTime(1800, 1, 1);
             dateTimePicker2.MinDate = new DateTime(1800, 1, 1);
 
@@ -160,6 +163,11 @@ namespace BaseballEFW
                                  select jugadores).First();
 
                 varjugador.nameFirst = jugador.nameFirst;
+                varjugador.nameLast = jugador.nameLast;
+                varjugador.nameGiven = jugador.nameGiven;
+                varjugador.birthCity = jugador.birthCity;
+                varjugador.birthCountry = jugador.birthCountry;
+
                 contexto.SaveChanges();
                
             }
@@ -170,12 +178,6 @@ namespace BaseballEFW
             using (BaseballEntities contexto = new BaseballEntities())
             {
 
-                //var varjugador = (from jugadores in contexto.Master
-                //                  where jugadores.playerID == jugador.playerID
-                //                  select jugadores).First();
-
-                //varjugador.nameFirst = jugador.nameFirst;
-                //contexto.SaveChanges();
                 var salariosvar = from salarios in contexto.Salaries
                                   where salarios.playerID == idjugador
                                   select salarios;
