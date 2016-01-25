@@ -186,5 +186,24 @@ namespace BaseballEFW
             }
             return listasalarios;
         }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if(checkBox1.Checked==false)
+            {
+                textBox9.Enabled = false;
+                textBox8.Enabled = false;
+                textBox7.Enabled = false;
+                dateTimePicker2.Enabled = false;
+            }
+            else
+            {
+                textBox9.Enabled = true;
+                textBox8.Enabled = true;
+                textBox7.Enabled = true;
+                dateTimePicker2.Enabled = true;
+            }
+
+        }
     }
 }
