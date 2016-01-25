@@ -175,31 +175,21 @@ namespace BaseballEFW
         {
             
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            try
+           
+                if(dataGridView1.SelectedCells.Count>0)
             {
-                if(dataGridView1.SelectedCells[0]==null||listBox1.Items==null||numericUpDown1.Value==null)
+                dataGridView2.Rows.Clear();
+                Teams equipo = (Teams)listBox1.SelectedItem;
+                string equipox = equipo.teamID;
+                int año = Convert.ToInt32(dataGridView1.SelectedCells[0].Value);
+                List<string[]> desglose = desgloseSalarios(equipox, año);
+                foreach (string[] registro in desglose)
                 {
+                    dataGridView2.Rows.Add(registro[0], registro[1], registro[2]);
                 }
-                else
-                {
-                   
-                    dataGridView2.Rows.Clear();
-                    Teams equipo = (Teams)listBox1.SelectedItem;
-                    string equipox = equipo.teamID;
-                    int año = Convert.ToInt32(dataGridView1.SelectedCells[0].Value);
-                    List<string[]> desglose = desgloseSalarios(equipox, año);
-                        foreach (string[] registro in desglose)
-                          {
-                              dataGridView2.Rows.Add(registro[0], registro[1], registro[2]);
-                          }
-                }
-            }
-            catch
-            {
-                
-            }
 
-
+            }
+         
 
         }
 
