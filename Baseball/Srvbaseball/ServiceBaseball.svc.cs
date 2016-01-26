@@ -144,7 +144,7 @@ namespace Srvbaseball
             
                 command.CommandType = CommandType.Text;
                 command.CommandText = "SELECT        Master.* " +
-                                       "FROM Master" +
+                                       "FROM Master " +
                                        "WHERE playerID=@id";
                 conn.Open();
                 SqlDataReader lector = command.ExecuteReader();
