@@ -134,6 +134,35 @@ namespace Srvbaseball
             }
             return jugadores;
         }
+        public Jugador GetJugador(string id)
+        {
+            Jugador jugador = new Jugador();
+            using (SqlConnection conn = new SqlConnection(conexion))
+            {
+                SqlCommand command = conn.CreateCommand();
+                SqlParameter idjug = command.Parameters.AddWithValue("@id", id);
+            
+                command.CommandType = CommandType.Text;
+                command.CommandText = "SELECT        Master.* " +
+                                       "FROM Master" +
+                                       "WHERE playerID=@id";
+                conn.Open();
+                SqlDataReader lector = command.ExecuteReader();
+        
+
+                while (lector.Read())
+                {
+                                       
+                   
+                    jugador.playerID = lector[0].ToString();
+                    jugador.nameFirst= lector[13].ToString();
+                    jugador.nameLast = lector[14].ToString();
+
+
+                }
+            }
+            return jugador;
+        }
 
     }
 }
