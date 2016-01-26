@@ -1,0 +1,7 @@
+﻿@using BaseBall.Modelos
+@model List<Player>
+
+@foreach(Player jugador in Model)
+{
+    <li id="@jugador.PlayerId">@jugador.NameGiven</li>
+}

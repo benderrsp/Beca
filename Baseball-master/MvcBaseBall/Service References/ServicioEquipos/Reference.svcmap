@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="31cad489-f5de-4aa8-afb1-5a30d4b3b9b9" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:51995/SrvEquipos.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="SrvEquipos.xsd" MetadataType="Schema" ID="ab603408-ccbc-4bcb-9f51-1ca75f869398" SourceId="1" SourceUrl="http://localhost:51995/SrvEquipos.svc?xsd=xsd0" />
+    <MetadataFile FileName="SrvEquipos2.xsd" MetadataType="Schema" ID="ab9fb7b2-d384-44ab-89d7-d9761ebcb012" SourceId="1" SourceUrl="http://localhost:51995/SrvEquipos.svc?xsd=xsd2" />
+    <MetadataFile FileName="SrvEquipos.disco" MetadataType="Disco" ID="cc0f24c9-315b-47b1-a093-d12479bdf628" SourceId="1" SourceUrl="http://localhost:51995/SrvEquipos.svc?disco" />
+    <MetadataFile FileName="SrvEquipos.wsdl" MetadataType="Wsdl" ID="be581861-9dc8-44d9-9b13-d4bdbe43a825" SourceId="1" SourceUrl="http://localhost:51995/SrvEquipos.svc?wsdl" />
+    <MetadataFile FileName="SrvEquipos1.xsd" MetadataType="Schema" ID="e080e008-7f1e-4434-8194-db3eee150c42" SourceId="1" SourceUrl="http://localhost:51995/SrvEquipos.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

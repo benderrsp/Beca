@@ -1,0 +1,26 @@
+﻿@using BaseBall.Modelos;
+@model Equipo[]
+@{ ViewBag.Title = "Equipos"; }
+
+<p>Esta es la pagina de los Equipos</p>
+
+<form  method="post">
+    <label>Año</label><input name="year" id="year" type="number" value="@ViewBag.Year" /><button type="submit" id="id">Filtrar</button>
+</form>
+<ul id="equipos" style="display:inline-block;vertical-align:top;">
+@foreach (Equipo equipo in Model)
+{
+    <li id="@equipo.teamID">@equipo.name</li>
+}
+</ul> 
+
+<ul id="jugadores" style="display:inline-block;vertical-align:top;"></ul>
+
+
+
+@section Scripts {
+    @Scripts.Render("~/Scripts/Equipos.js")
+    @Scripts.Render("~/Scripts/Jugadores.js")
+    
+
+}
