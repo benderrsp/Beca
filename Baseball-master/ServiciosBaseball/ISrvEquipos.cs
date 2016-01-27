@@ -22,5 +22,7 @@ namespace ServiciosBaseball
         List<Player> GetJugadoresEquipoAño(string idTeam, int year);
         [OperationContract]
         Player GetJugador(string id);
+        [OperationContract]
+        void RellenarJugador(Player jugador);
     }
 }

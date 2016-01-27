@@ -39,13 +39,35 @@ namespace MvcBaseBall.Controllers
 
             return View("Index",Equipos.GetEquiposByYear(id));
         }
+        
 
 
         public ActionResult Jugadores(string equipo, int year)
         {
             ServicioEquipos.SrvEquiposClient equipos = new ServicioEquipos.SrvEquiposClient();
             List<Player> jugadores = equipos.GetJugadoresEquipoAño(equipo, year).ToList();
-            return View("_ListaJugadores", jugadores);
+            return PartialView("_ListaJugadores", jugadores);
+        }
+
+        public ActionResult Jugador(string id)
+        {
+            ServicioEquipos.SrvEquiposClient cliente = new ServicioEquipos.SrvEquiposClient();
+            Player jugador = cliente.GetJugador(id);
+            return PartialView("_Jugador", jugador);
+
+        }
+        public ActionResult Jugador(string id, int year, string equipo)
+        {
+            ServicioEquipos.SrvEquiposClient cliente = new ServicioEquipos.SrvEquiposClient();
+            Player jugador = cliente.GetJugador(id);
+            return PartialView("_Jugador", jugador);
+        }
+
+        public ActionResult UpDate(Player jugador)
+        {
+            ServicioEquipos.SrvEquiposClient cliente = new ServicioEquipos.SrvEquiposClient();
+            cliente.RellenarJugador(jugador);
+            return View("Index");
         }
     }
 }

@@ -37,6 +37,12 @@
   <wsdl:message name="ISrvEquipos_GetJugador_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetJugadorResponse" />
   </wsdl:message>
+  <wsdl:message name="ISrvEquipos_RellenarJugador_InputMessage">
+    <wsdl:part name="parameters" element="tns:RellenarJugador" />
+  </wsdl:message>
+  <wsdl:message name="ISrvEquipos_RellenarJugador_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RellenarJugadorResponse" />
+  </wsdl:message>
   <wsdl:portType name="ISrvEquipos">
     <wsdl:operation name="GetAñoInicial">
       <wsdl:input wsaw:Action="http://tempuri.org/ISrvEquipos/GetAñoInicial" message="tns:ISrvEquipos_GetAñoInicial_InputMessage" />
@@ -57,6 +63,10 @@
     <wsdl:operation name="GetJugador">
       <wsdl:input wsaw:Action="http://tempuri.org/ISrvEquipos/GetJugador" message="tns:ISrvEquipos_GetJugador_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISrvEquipos/GetJugadorResponse" message="tns:ISrvEquipos_GetJugador_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RellenarJugador">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISrvEquipos/RellenarJugador" message="tns:ISrvEquipos_RellenarJugador_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISrvEquipos/RellenarJugadorResponse" message="tns:ISrvEquipos_RellenarJugador_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_ISrvEquipos" type="tns:ISrvEquipos">
@@ -99,6 +109,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetJugador">
       <soap:operation soapAction="http://tempuri.org/ISrvEquipos/GetJugador" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RellenarJugador">
+      <soap:operation soapAction="http://tempuri.org/ISrvEquipos/RellenarJugador" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

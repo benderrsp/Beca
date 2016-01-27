@@ -68,4 +68,16 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="RellenarJugador">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/BaseBall.Modelos" minOccurs="0" name="jugador" nillable="true" type="q4:Player" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RellenarJugadorResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

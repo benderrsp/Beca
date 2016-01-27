@@ -134,18 +134,43 @@ namespace ServiciosBaseball
                 SqlDataReader lector = command.ExecuteReader();
 
 
-                while (lector.Read())
+                if (lector.Read())
                 {
-
 
                     jugador.PlayerId = lector[0].ToString();
                     jugador.NameFirst = lector[13].ToString();
                     jugador.NameLast= lector[14].ToString();
-
+                    jugador.NameGiven = lector[15].ToString();
 
                 }
             }
             return jugador;
+        }
+        public void RellenarJugador(Player jugador)
+        {
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["BaseBall"].ConnectionString))
+            {
+                SqlCommand command = conn.CreateCommand();
+                command.CommandType = CommandType.Text;
+                SqlParameter idjugador = command.Parameters.AddWithValue("@id", jugador.PlayerId);
+                SqlParameter nombrejugador = command.Parameters.AddWithValue("@nameFirst", jugador.NameFirst);
+                SqlParameter apellidojugador = command.Parameters.AddWithValue("@nameLast", jugador.NameLast);
+                SqlParameter apodo = command.Parameters.AddWithValue("@nameGiven", jugador.NameGiven);
+                //SqlParameter añonac = command.Parameters.AddWithValue("@birthYear", jugador.BirthYear);
+                //SqlParameter mesnac = command.Parameters.AddWithValue("@birthMonth", jugador.BirthMonth);
+                //SqlParameter dianac = command.Parameters.AddWithValue("@birthDay", jugador.BirthDay);
+
+                command.CommandText = "UPDATE Master" +
+                                      " Set nameFirst = @nameFirst" +
+                                      ",nameLast = @nameLast " +
+                                      ",nameGiven= @nameGiven " +
+                                      //",birthYear= @birthYear " +
+                                      //",birthMonth= @birthMonth " +
+                                      //",birthDay= @birthDay " +
+                                      "where playerID = @id;";
+                conn.Open();
+                command.ExecuteNonQuery();
+            }
         }
     }
 }

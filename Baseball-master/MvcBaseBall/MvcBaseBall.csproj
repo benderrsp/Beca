@@ -235,6 +235,7 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
+    <Content Include="Scripts\FormJugador.js" />
     <Content Include="Scripts\jquery-2.2.0.js" />
     <Content Include="Scripts\jquery-2.2.0.min.js" />
     <Content Include="Scripts\jquery-2.2.0.min.map" />
@@ -249,6 +250,8 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\utiles.js" />
+    <Content Include="Scripts\utiles2.js" />
     <Content Include="Scripts\_references.js" />
     <None Include="Service References\ServicioEquipos\SrvEquipos.disco" />
     <None Include="Service References\ServicioEquipos\configuration91.svcinfo" />
@@ -303,7 +306,9 @@
       <SubType>Designer</SubType>
     </None>
     <Content Include="Views\Equipo\_ListaJugadores.cshtml" />
-    <Content Include="Views\Jugador\_Jugador.cshtml" />
+    <Content Include="Views\Equipo\_Jugador.cshtml" />
+    <Content Include="Views\Jugador\JugadorForm.cshtml" />
+    <Content Include="Views\Jugador\Exito.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -44,6 +44,12 @@ namespace MvcBaseBall.ServicioEquipos {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISrvEquipos/GetJugador", ReplyAction="http://tempuri.org/ISrvEquipos/GetJugadorResponse")]
         System.Threading.Tasks.Task<BaseBall.Modelos.Player> GetJugadorAsync(string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISrvEquipos/RellenarJugador", ReplyAction="http://tempuri.org/ISrvEquipos/RellenarJugadorResponse")]
+        void RellenarJugador(BaseBall.Modelos.Player jugador);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISrvEquipos/RellenarJugador", ReplyAction="http://tempuri.org/ISrvEquipos/RellenarJugadorResponse")]
+        System.Threading.Tasks.Task RellenarJugadorAsync(BaseBall.Modelos.Player jugador);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -111,6 +117,14 @@ namespace MvcBaseBall.ServicioEquipos {
         
         public System.Threading.Tasks.Task<BaseBall.Modelos.Player> GetJugadorAsync(string id) {
             return base.Channel.GetJugadorAsync(id);
+        }
+        
+        public void RellenarJugador(BaseBall.Modelos.Player jugador) {
+            base.Channel.RellenarJugador(jugador);
+        }
+        
+        public System.Threading.Tasks.Task RellenarJugadorAsync(BaseBall.Modelos.Player jugador) {
+            return base.Channel.RellenarJugadorAsync(jugador);
         }
     }
 }

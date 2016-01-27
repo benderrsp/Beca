@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using BaseBall.Modelos;
 
 namespace MvcBaseBall.Controllers
 {
@@ -12,8 +13,21 @@ namespace MvcBaseBall.Controllers
         public ActionResult Index(string id)
         {
             ServicioEquipos.SrvEquiposClient cliente = new ServicioEquipos.SrvEquiposClient();
-            
-            return View("_Jugador", cliente.GetJugador(id));
+            Player jugador = cliente.GetJugador(id);
+            return View("JugadorForm", jugador);
+           
+        }
+        public ActionResult Modificar(string id)
+        {
+            ServicioEquipos.SrvEquiposClient cliente = new ServicioEquipos.SrvEquiposClient();
+            Player jugador = cliente.GetJugador(id);
+            return View("JugadorForm", jugador);
+        }
+        public ActionResult UpDate(Player jugador)
+        {
+            ServicioEquipos.SrvEquiposClient cliente = new ServicioEquipos.SrvEquiposClient();
+            cliente.RellenarJugador(jugador);
+            return View("Exito");
         }
     }
 }
