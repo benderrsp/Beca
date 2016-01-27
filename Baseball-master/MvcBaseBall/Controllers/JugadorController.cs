@@ -12,8 +12,8 @@ namespace MvcBaseBall.Controllers
         public ActionResult Index(string id)
         {
             ServicioEquipos.SrvEquiposClient cliente = new ServicioEquipos.SrvEquiposClient();
-            cliente.GetJugador(id);
-            return PartialView();
+            
+            return View("_Jugador", cliente.GetJugador(id));
         }
     }
 }
