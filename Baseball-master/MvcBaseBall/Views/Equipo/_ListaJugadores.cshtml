@@ -1,11 +1,19 @@
-﻿@using BaseBall.Modelos
+﻿
+@using BaseBall.Modelos
 @model List<Player>
 
-@foreach(Player jugador in Model)
-{
 
-    //COMENTAR O DESCOMENTAR SEGUN QUERAMOS QUE SEAN LINKS O NO
 
-    <li id="@jugador.PlayerId">@jugador.NameGiven</li>
-    @*<li>@Html.ActionLink(jugador.NameGiven,"Modificar","Jugador",new { id = jugador.PlayerId }, null)</li>*@
-}
+        @foreach (Player jugador in Model)
+        {
+
+            //COMENTAR O DESCOMENTAR SEGUN QUERAMOS QUE SEAN LINKS O NO
+
+            <li id="@jugador.PlayerId">@jugador.NameGiven</li>
+            @*<li>@Html.ActionLink(jugador.NameGiven,"Modificar","Jugador",new { id = jugador.PlayerId }, null)</li>*@
+        }
+
+   
+
+
+

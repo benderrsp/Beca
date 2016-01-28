@@ -1,9 +1,7 @@
 ﻿$(document).ready(function () {
-    $("#cancel").click(function () {
-
-
-        //alert("Recargando padre");
-        window.close();
+    //$("#campos").disable();
+    $("input").attr("disabled", "disabled");
+    $("select").attr("disabled", "disabled");
+    $(".mal").attr("disable", false);
     });
 
-});

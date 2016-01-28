@@ -13,10 +13,16 @@
     <li id="@equipo.teamID">@equipo.name</li>
 }
 </ul> 
-
+@if (ViewBag.jugadores != null)
+{
+    Player[] jugadores = ViewBag.jugadores;
+    Html.RenderPartial("_ListaJugadores", jugadores.ToList());
+}
 <ul id="jugadores" style="display:inline-block;vertical-align:top;"></ul>
-<ul id="jugador" style="display:inline-block;vertical-align:top;"></ul>
 
+
+<ul id="jugador" style="display:inline-block;vertical-align:top;"></ul>
+<input id="equipohid"type="hidden" name="equipohid" value="">
 
 @section Scripts {
 

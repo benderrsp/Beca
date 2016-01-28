@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using BaseBall.Modelos;
+using System.Web.Routing;
 
 namespace MvcBaseBall.Controllers
 {
@@ -12,22 +13,32 @@ namespace MvcBaseBall.Controllers
         // GET: Jugador
         public ActionResult Index(string id)
         {
-            ServicioEquipos.SrvEquiposClient cliente = new ServicioEquipos.SrvEquiposClient();
-            Player jugador = cliente.GetJugador(id);
-            return View("JugadorForm", jugador);
+         
+            return View();
            
         }
-        public ActionResult Modificar(string id)
+
+        [HttpGet]
+        public ActionResult Modificar(string id, int year, string team)
         {
             ServicioEquipos.SrvEquiposClient cliente = new ServicioEquipos.SrvEquiposClient();
             Player jugador = cliente.GetJugador(id);
             return View("JugadorForm", jugador);
         }
-        public ActionResult UpDate(Player jugador)
+
+        [HttpPost]
+        public ActionResult Modificar(Player jugador,int year, string team)
         {
+            //HttpContext.Request.Params
             ServicioEquipos.SrvEquiposClient cliente = new ServicioEquipos.SrvEquiposClient();
             cliente.RellenarJugador(jugador);
-            return View("Exito");
+
+            RouteValueDictionary routeData = new RouteValueDictionary();
+            routeData.Add("year", year);
+            routeData.Add("team", team);
+            ViewBag.error = true;
+            //return RedirectToAction("Index", "Equipo",routeData);
+            return View("JugadorForm",jugador);
         }
     }
 }

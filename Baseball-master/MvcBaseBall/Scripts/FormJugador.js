@@ -1,19 +1,18 @@
-﻿
+﻿var anoElegido = $("#year").val();
+
 $(document).ready(function () {
     $("#jugadores").click(function (e) {
        
         var jugador = e.target;
-        //alert(document.location.origin);
-        var url = document.location.origin + '/Jugador/Modificar/' + jugador.id;
-        //alert(url);
+        var equipo = $("#equipohid").val();
+        var url = document.location.origin + '/Jugador/Modificar?id=' + jugador.id+'&year='+anoElegido+'&team='+equipo;
+      
         enlace(url);
-       
-        
-        
+              
     });
 });
 
 function enlace(url) {
    
-    window.open(url, "Jugador", "width=700,height=400,scrollbars=NO")
+    window.location = url;
 }

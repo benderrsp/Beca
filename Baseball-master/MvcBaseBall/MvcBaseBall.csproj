@@ -306,7 +306,6 @@
       <SubType>Designer</SubType>
     </None>
     <Content Include="Views\Equipo\_ListaJugadores.cshtml" />
-    <Content Include="Views\Equipo\_Jugador.cshtml" />
     <Content Include="Views\Jugador\JugadorForm.cshtml" />
     <Content Include="Views\Jugador\Exito.cshtml" />
   </ItemGroup>

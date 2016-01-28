@@ -10,14 +10,32 @@ namespace MvcBaseBall.Controllers
     public class EquipoController : Controller
     {
         // GET: Equipo
+        
         public ActionResult Index()
         {
-            ViewBag.Year = "2014";
+            ViewBag.jugadores=null;
+            int year = 2014;
+            if(HttpContext.Request.Params["year"]==null)
+            { 
+               ViewBag.Year = "2014";
+                
+            }
+            else
+            {
+                string team = HttpContext.Request.Params["team"];
+                year = Convert.ToInt32(HttpContext.Request.Params["year"]);
+                ServicioEquipos.SrvEquiposClient Equiposs = new ServicioEquipos.SrvEquiposClient();
+                ViewBag.jugadores = Equiposs.GetJugadoresEquipoAño(team, year);
+                ViewBag.Year = year;
+            }
 
             ServicioEquipos.SrvEquiposClient Equipos = new ServicioEquipos.SrvEquiposClient();
-
-            return View(Equipos.GetEquiposByYear(2014));
+            
+            return View(Equipos.GetEquiposByYear(year));
+           
+            
         }
+    
 
         // Post: Equipo
         [HttpPost]
@@ -46,6 +64,7 @@ namespace MvcBaseBall.Controllers
         {
             ServicioEquipos.SrvEquiposClient equipos = new ServicioEquipos.SrvEquiposClient();
             List<Player> jugadores = equipos.GetJugadoresEquipoAño(equipo, year).ToList();
+            ViewBag.jugadores = jugadores; 
             return PartialView("_ListaJugadores", jugadores);
         }
 
@@ -56,6 +75,8 @@ namespace MvcBaseBall.Controllers
             return PartialView("_Jugador", jugador);
 
         }
+
+        //Ésta es la sobrecarga de obtener jugador
         public ActionResult Jugador(string id, int year, string equipo)
         {
             ServicioEquipos.SrvEquiposClient cliente = new ServicioEquipos.SrvEquiposClient();
